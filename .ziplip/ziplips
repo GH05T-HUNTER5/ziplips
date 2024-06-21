@@ -1,5 +1,12 @@
 #!/usr/bin/bash
 
+if [[ -d /usr/bin ]]; then
+	if [ $(id -u) -ne 0 ]; then
+		echo "This script must be ran as root"
+		exit 1
+	fi 
+fi
+
 readthisone() {
 	echo ""
 	echo "######################################################"
@@ -58,11 +65,11 @@ default_pass()
 {
 	if [[ -d /usr/bin ]]
 		if [[ $pass == "01" ]] || [[ $pass == "1" ]]; then
-			value="/usr/share/ziplips/password-01.txt"
+			value="/usr/ziplips/cookies/password-01.txt"
 		fi
 	elif [[ -d /data/data/com.termux/files/usr ]]; then
 		if [[ $pass == "01" ]] || [[ $pass == "1" ]]; then
-			value="/data/data/com.termux/files/usr/cookies/password-01.txt"
+			value="/data/data/com.termux/files/usr/ziplips/cookies/password-01.txt"
 		fi
 	fi
 }
