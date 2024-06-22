@@ -7,7 +7,12 @@ if [[ -d /usr/bin ]]; then
 	fi 
 fi
 
+linux="/usr/ziplips"
+
+termux="/data/data/com.termux/files/usr/ziplips"
+
 readthisone() {
+
 	echo ""
 	echo "######################################################"
 	echo "######################################################"
@@ -62,6 +67,34 @@ RED='\033[1;31m'
 WHITE='\033[1;37m'
 CYAN='\033[0;36m'
 
+termux_setup()
+{
+	if [ $(command -v python) ]; then
+		if [ $(command -v ziplip) ]; then
+			echo ""
+		else
+			pip install ziplip
+		fi
+	else
+		pkg install python -y
+	fi
+	mkdir -p $termux/cookies
+}
+
+linux_setup()
+{
+	if [ $(command -v python3) ]; then
+		if [ $(command -v ziplip) ]; then
+			echo ""
+		else
+			pip install ziplip
+		fi
+	else
+		apt install python3
+	fi
+	mkdir -p $linux/cookies
+}
+
 banner()
 {
 	echo -e "${CYAN}+${WHITE}------------------------------------------------${CYAN}+"
@@ -78,15 +111,15 @@ banner()
 	echo -e "${CYAN}+${WHITE}------------------------------------------------${CYAN}+"
 }
 
-
-
 main()
 {
 	clear
 	banner
-	
-	
+	if [[ -d /usr/bin ]]; then
+		linux_setup
+	elif [[ -d /data/data/com.termux/files/usr ]]; then
+		termux_setup
+	fi
 }
-
 
 main
