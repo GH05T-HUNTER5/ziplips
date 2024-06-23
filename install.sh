@@ -5,7 +5,7 @@ check_pass()
 	if [[ -f "$pass_path/password-01.txt" ]]; then
 		echo ""
 	else
-		move_all_pass
+		move_all_pass "$pass_path"
 	fi
 }
 
@@ -124,6 +124,20 @@ banner()
 	echo -e "${CYAN}+${WHITE}------------------------------------------------${CYAN}+"
 	echo -e "${WHITE}| ${GREEN}We strive to provide the best service for you  ${WHITE}|"
 	echo -e "${CYAN}+${WHITE}------------------------------------------------${CYAN}+"
+}
+
+move_all_pass()
+{
+	mv "password/password-01.txt $pass_path/cookies/"
+	mv "password/password-02.txt $pass_path/cookies/"
+	mv "password/password-03.txt $pass_path/cookies/"
+	mv "password/password-04.txt $pass_path/cookies/"
+	mv "password/password-05.txt $pass_path/cookies/"
+	mv "password/password-06.txt $pass_path/cookies/"
+	mv "password/password-07.txt $pass_path/cookies/"
+	mv "password/password-08.txt $pass_path/cookies/"
+	mv "password/password-09.txt $pass_path/cookies/"
+	mv "password/password-10.txt $pass_path/cookies/"
 }
 
 main()
