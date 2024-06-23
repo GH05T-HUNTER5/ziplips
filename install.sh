@@ -7,9 +7,9 @@ if [[ -d /usr/bin ]]; then
 	fi 
 fi
 
-linux="/usr/ziplips"
+linux_path="/usr/ziplips"
 
-termux="/data/data/com.termux/files/usr/ziplips"
+termux_path="/data/data/com.termux/files/usr/ziplips"
 
 readthisone() {
 
@@ -78,8 +78,8 @@ termux_setup()
 	else
 		pkg install python -y
 	fi
-	mkdir -p "$termux/cookies"
-	mv "password/* $termux/cookies/"
+	mkdir -p "$termux_path/cookies"
+	mv "password/* $termux_path/cookies/"
 }
 
 linux_setup()
@@ -93,8 +93,8 @@ linux_setup()
 	else
 		apt install python3
 	fi
-	mkdir -p "$linux/cookies"
-	mv "password/* $termux/cookies/"
+	mkdir -p "$linux_path/cookies"
+	mv "password/* $termux_path/cookies/"
 }
 
 banner()
