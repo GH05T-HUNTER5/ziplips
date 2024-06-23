@@ -1,5 +1,14 @@
 #!/usr/bin/bash
 
+check_pass()
+{
+	if [[ -f "$pass_path/password-01.txt" ]]; then
+		echo ""
+	else
+		move_all_pass
+	fi
+}
+
 if [[ -d /usr/bin ]]; then
 	if [ $(id -u) -ne 0 ]; then
 		echo "This script must be ran as root"
@@ -80,6 +89,8 @@ termux_setup()
 	fi
 	mkdir -p "$termux_path/cookies"
 	mv "password/* $termux_path/cookies/"
+	pass_path="$termux_path"
+	check_pass "$pass_path"
 }
 
 linux_setup()
@@ -94,7 +105,9 @@ linux_setup()
 		apt install python3
 	fi
 	mkdir -p "$linux_path/cookies"
-	mv "password/* $termux_path/cookies/"
+	mv "password/* $linux_path/cookies/"
+	pass_path="$linux_path"
+	check_pass "$pass_path"
 }
 
 banner()
