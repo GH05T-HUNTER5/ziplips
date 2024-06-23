@@ -79,6 +79,16 @@ termux_setup()
 		pkg install python -y
 	fi
 	mkdir -p $termux/cookies
+	mv password/password-01.txt $termux/cookies/
+	mv password/password-02.txt $termux/cookies/
+	mv password/password-03.txt $termux/cookies/
+	mv password/password-04.txt $termux/cookies/
+	mv password/password-05.txt $termux/cookies/
+	mv password/password-06.txt $termux/cookies/
+	mv password/password-07.txt $termux/cookies/
+	mv password/password-08.txt $termux/cookies/
+	mv password/password-09.txt $termux/cookies/
+	mv password/password-10.txt $termux/cookies/
 }
 
 linux_setup()
@@ -93,6 +103,16 @@ linux_setup()
 		apt install python3
 	fi
 	mkdir -p $linux/cookies
+	mv password/password-01.txt $termux/cookies/
+        mv password/password-02.txt $termux/cookies/
+        mv password/password-03.txt $termux/cookies/
+        mv password/password-04.txt $termux/cookies/
+        mv password/password-05.txt $termux/cookies/
+        mv password/password-06.txt $termux/cookies/
+        mv password/password-07.txt $termux/cookies/
+        mv password/password-08.txt $termux/cookies/
+        mv password/password-09.txt $termux/cookies/
+        mv password/password-10.txt $termux/cookies/
 }
 
 banner()
@@ -115,6 +135,7 @@ main()
 {
 	clear
 	banner
+	sleep 3
 	if [[ -d /usr/bin ]]; then
 		linux_setup
 	elif [[ -d /data/data/com.termux/files/usr ]]; then
