@@ -1,3 +1,3 @@
 # ziplip
 
-<img src=".ziplips/ziplips.jpg">
+<img src=".ziplip/ziplips.jpg">
